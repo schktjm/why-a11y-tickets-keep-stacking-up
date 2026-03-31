@@ -1,0 +1,10 @@
+.slidev-page {
+  background-image: url("/bottom.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.slidev-page:has(.no-bg) {
+  background-image: none;
+}
