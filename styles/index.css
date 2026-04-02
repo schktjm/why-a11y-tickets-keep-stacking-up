@@ -1,10 +1,47 @@
-.slidev-page {
-  background-image: url("/bottom.png");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
+/* デフォルトテーマの詳細度が高く上書きが難しいので一律で上げている
+ * 時間があったらテーマを自作したい
+ */
+#app {
+  color: #333;
 
-.slidev-page:has(.no-bg) {
-  background-image: none;
+  .dark & {
+    color: #eee;
+  }
+
+  .slidev-page {
+    background-image: url("/bottom.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  .slidev-page:has(.no-bg) {
+    background-image: none;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-block: 1em;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-block: 0.5rem;
+    line-height: 1.5;
+    opacity: 1;
+  }
+
+  ol > li,
+  ul > li {
+    font-size: 1.5rem;
+  }
 }

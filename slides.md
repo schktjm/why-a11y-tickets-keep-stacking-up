@@ -1,627 +1,215 @@
 ---
-# try also 'default' to start simple
 theme: default
+htmlAttrs:
+    lang: ja
 # some information about your slides (markdown enabled)
 title: アクセシビリティ課題チケットはなぜ積まれ続けるのか？
-# info: 
+# info:
 # apply UnoCSS classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
 drawings:
-  persist: false
+    persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# duration of the presentation
-duration: 15min
+duration: 30min
+download: false
+selectable: true
+fonts:
+    sans: Noto Sans JP,
 ---
 
-# アクセシビリティ課題チケットはなぜ積まれ続けるのか？
 
-Presentation slides for developers
+# アクセシビリティ課題チケットは<br/>なぜ積まれ続けるのか？
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
+SmartHR アクセシビリティエンジニア たじまん
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
+<p class="!text-lg !font-normal">アクセシビリティ対応の「どこまでやる？」を言語化する<br/>
+　~チームで迷わないための設計と判断基準~<br/>
+@2026/04/10
+</p>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+
+---
+hide: true
+---
+
+## 目次
+
+1. 自己紹介（1分）
+    - SmartHRの状況の紹介
+      - アクセシビリティ専門組織があります
+      - 品質基準と簡易チェックリストがあります
+      - 開発方針があります
+2. 問い → 原因（2分）
+    - チケットが積まれる理由はやる気でも方針でもない
+    - プロダクトの品質を含む価値提供と何にコストををかけるかの判断はPMがしているので、がっつりコストをかけるにはPMの判断が必要でハードルが高い
+    - なので、PdE自身がアクセシビリティ改善をしようとしたときは、OKR以外に掛けられる時間である数%の時間でやるしかできない
+    - 昨今のエンジニアは、アクセシビリティ以外にもセキュリティやパフォーマンス、更にAIのキャッチアップなど実利的な機能以外のやるべきことが沢山あり、忙しい
+    - そのため、心理的にも外向きにもその数%をアクセシビリティ課題の改善に使う絶対的な理由がない限りハードルが高くなってしまっている
+      - やりたくてもできない状態
+3. 対策案（5分）
+    - →アクセシビリティ改善のやる理由を用意し、やりやすい状況を作る
+    1. アクセシビリティ大臣を置く
+        - 各チームにチケットの窓口担当を設ける
+        - 専門知識不要・チームとアクセシビリティ部の橋渡し役
+    2. 月1リファインメントで事前にセットアップする
+        - 何を直すか・どう直すか・誰がやるかを一緒に決めておく
+        - 育成も兼ねる
+        - PdEとともに考えるフェーズを行うことで、あとは「手を動かす」だけの状態にする
+    - ここに具体例（1〜2個）
+    1. 結論：アクセシビリティ改善をやる理由を用意し、やりやすい状況をつくる
+        - アクセシビリティ部にとってはPdEが自ら改善するサイクルを作れてハッピー（持続可能的）
+        - やりたくてもできなかったひと、月に数時間程度なら負担も大きすぎず改善ができる
+        - スキルがまだ少ない大臣、アクセシビリティ部がサポートする機会もうまれ育成ができる
+            - 後はやるだけ状態にできる
+        - なお、リファは永続的な仕組みではない
+        smarthr-ui の活用とリファでのスキルアップが進めば
+        チームが独自に回せるようになり、リファ自体が不要になっていく想定
+4. 持ち帰り（2分）
+    - 原理：PdEがチケットを後回しにするのは、やりたくないのではなく今はできないなのかもしれない
+    - 明日できること：自分のチームの「動き出しのハードルはどこにあるか」を1つ考える
+
+## 朝会の壁打ち
+
+### なぜ大臣とリファをしているんだっけ？
+
+- 今のマスター
+    - 普段忙しそう
+    - アクセシビリティやっていきの人が多い
+    - 改善をする理由を生やして改善に割きやすくしたい
+- 新しい大臣
+    - 普段忙しい
+    - アクセシビリティやっていき度は比較的低いはず
+    - どうやれば改善するかわからない
+    - キャッチアップに時間がとれない
+    - →リファをつかってあとは改善するだけ状態までサポートする
+
+まとめると
+
+- 基本PdEは新機能実装がメインでそれ以外の業務に手が回らない
+- リファをすることで、改善をするというきっかけ（理由）をつくる
+- 余裕がなくて、知らない技術のキャッチアップに手が回せない人のサポートにもなる
+
+リファの一石二鳥
+
+- 改善をするきっかけ
+- 育成
 
 ---
 
-# What is Slidev?
+## 自己紹介
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
+tajiman desu!
 
 ---
-transition: slide-up
-level: 2
+layout: two-cols-header
 ---
 
-# Navigation
+## 会社紹介
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+::left::
 
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+SmartHRは<br>
+「well-working 労働にまつわる社会課題をなくし、<span v-mark.circle.red>誰もが</span>その人らしく働ける社会を作る。」<br>
+というミッションを掲げ、働くすべての人を後押しするプラットフォームをつくっています。
 
 ::right::
 
-<Toc text-sm minDepth="1" maxDepth="2" />
 
+<img src="./public/画面キャプチャ.png" alt="SmartHRの画面キャプチャ" class="my-auto"/>
 ---
-layout: image-right
-image: https://cover.sli.dev
-class: no-bg
+transition: slide-up
 ---
 
-# Code
+## SmartHRとアクセシビリティの紹介
 
-Use code snippets and get the highlighting directly, and even types hover!
+<!-- 時間がありそうだったら広げる -->
 
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="653,272,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+- SmartHRではアクセシビリティ本部（旧プログレッシブデザイン本部）という、アクセシビリティの専任組織があります
+- SmartHRのプロダクトに求める [品質基準](https://smarthr.design/products/usability/accessibility/) を定めています
+- [アクセシビリティに関する開発方針](https://smarthr.design/accessibility/#h2-1) や、品質基準を達成しているか簡易的に試験できる [簡易チェックリスト](https://smarthr.design/accessibility/check-list/) を公開しています。
 
 ---
 layout: center
-class: text-center
 ---
 
-# Learn More
+今日のイベントの導入である、
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+<blockquote>
+    <p class="!leading-[2]">
+        要件定義の段階で<span v-mark>どこまで決めるべき</span>なのか、<span v-mark>優先順位</span>をどう考えるのか、<br>
+        <span v-mark>誰がどこまで責任を持つのか</span>など、現場で迷うポイントも少なくありません。
+    </p>
+</blockquote>
 
-<PoweredBySlidev mt-10 />
+
+これはある程度解決している...<v-click>はず</v-click>
+
+<p>
+<v-click>しかしながら、a11y NG課題に関するチケットは積まれがち。</v-click>
+</p>
+
+---
+
+## なぜ、a11y改善チケットは積まれてしまうの？
+
+<v-clicks>
+
+- アクセシビリティのやる気がない！→ SmartHRでは No
+- アクセシビリティの優先順位が決まってないから？→ 開発方針は決まっているので No
+- エンジニアの知識が少ない！→ 半分Yes...! (課題だね)
+
+</v-clicks>
+
+<p>
+<v-click>じゃあなぜ？→ 忙しくやりたくてもできない</v-click>
+</p>
+
+---
+
+## 「やりたくてもできない」とは
+
+<!-- - そもそも、品質を含むプロダクトの価値提供やコスト配分について責任を持つのはPdM -->
+- PdEが独自に改善チケットを片付けるには、機能開発チケットを片付けた後の数%の余剰時間を使うしかない
+- 昨今のエンジニアには、アクセシビリティ以外にもAI技術のキャッチアップやセキュリティ問題解消、パフォーマンス課題など様々な重要なタスクを抱えている
+- そのため、数%の余剰時間をアクセシビリティ課題改善に使う絶対的な理由がない限り、心理的なハードルが高くなってしまっている
+
+---
+layout: center
+---
+
+SmartHRはデザインシステムの充実により、ほぼすべてのプロダクトで危機的な問題は発生していない
+
+<p class="!mt-[2em]"><v-click><mdi-arrow-right-bold title="右矢印" class="text-red-600"/>結果的に、やりたくとも別の優先度が高いタスクによって着手しづらい状況になっている</v-click></p>
+
+---
+
+## 対策
+
+<p>
+    <mdi-arrow-right-bold title="右矢印" />アクセシビリティ課題解消に取り組む理由を用意し、やりやすい状況を作る
+</p>
+
+<v-clicks>
+
+1. 各チームにa11yチケットを受け取る窓口担当を置く
+2. アクセシビリティエンジニアと共にNGチケットのリファインメント時間をさく
+
+</v-clicks>
+
+---
+
+## 1. 各チームにa11yチケットを受け取る窓口担当を置く
+
+<!-- - 以前あったアクセシビリティマスターという名前をやめて、アクセシビリティ大臣という名前にしました！（ハイコンテキスト） -->
+- 「アクセシビリティNGチケットを受け取る人」という役割をつくる
+    - NGチケットのaaa
+
+---
+
+## 2. アクセシビリティエンジニアとともに、NGチケットのリファインメントを実施する
+
+---
+
+こうすることでなになに
