@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/why-a11y-tickets-keep-stacking-up/(.*)", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" }
+    { "source": "/why-a11y-tickets-keep-stacking-up/(.*)", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" },
+    { "source": "/why-a11y-tickets-keep-stacking-up", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" }
   ],
-  "buildCommand": "pnpm slidev build --base /why-a11y-tickets-keep-stacking-up/",
+  "buildCommand": "pnpm slidev build --base /why-a11y-tickets-keep-stacking-up/ --out dist/why-a11y-tickets-keep-stacking-up",
   "outputDirectory": "dist"
 }
