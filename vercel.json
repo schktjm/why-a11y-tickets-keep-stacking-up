@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/", "destination": "/why-a11y-tickets-keep-stacking-up/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/why-a11y-tickets-keep-stacking-up/(.*)", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" },
     { "source": "/why-a11y-tickets-keep-stacking-up", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" }
