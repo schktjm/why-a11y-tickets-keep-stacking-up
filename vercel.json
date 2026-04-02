@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/why-a11y-tickets-keep-stacking-up/(.*)", "destination": "/why-a11y-tickets-keep-stacking-up/index.html" }
   ],
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm slidev build --base /why-a11y-tickets-keep-stacking-up/",
   "outputDirectory": "dist"
 }
