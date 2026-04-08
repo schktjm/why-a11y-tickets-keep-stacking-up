@@ -24,8 +24,10 @@ seoMeta:
     ogTitle: アクセシビリティ課題チケットを貯めないために
     ogDescription: アクセシビリティ対応の「どこまでやる？」を言語化する ~チームで迷わないための設計と判断基準~ イベントの登壇スライド
     ogUrl: https://slides.schktjm.com/why-a11y-tickets-keep-stacking-up/
+    ogImage: https://i.gyazo.com/806e16ec53c2cefeac061fa305f19777.png
     twitterCard: summary_large_image
     twitterSite: schktjm
+    twitterImage: https://i.gyazo.com/806e16ec53c2cefeac061fa305f19777.png
 ---
 
 
