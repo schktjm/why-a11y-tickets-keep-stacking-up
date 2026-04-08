@@ -2,11 +2,9 @@
 theme: default
 htmlAttrs:
     lang: ja
-seoMeta:
-    ogImage: auto
 favicon: ./public/profile-circle.png
 # some information about your slides (markdown enabled)
-title: アクセシビリティ課題チケットはなぜ積まれ続けるのか？
+title: アクセシビリティ課題チケットを貯めないために
 # info:
 # apply UnoCSS classes to the current slide
 class: text-center
@@ -21,11 +19,18 @@ record: false
 selectable: true
 timer: stopwatch
 fonts:
-    sans: Noto Sans JP,
+    sans: Noto Sans JP
+seoMeta:
+    ogTitle: アクセシビリティ課題チケットを貯めないために
+    ogDescription: アクセシビリティ対応の「どこまでやる？」を言語化する ~チームで迷わないための設計と判断基準~ イベントの登壇スライド
+    ogImage: auto
+    ogUrl: https://slides.schktjm.com/why-a11y-tickets-keep-stacking-up/
+    twitterCard: summary_large_image
+    twitterSite: schktjm
 ---
 
 
-# アクセシビリティ課題チケットは<br/>なぜ積まれ続けるのか？
+# アクセシビリティ課題チケットを<br/>貯めないために
 
 SmartHR アクセシビリティエンジニア たじまん
 
