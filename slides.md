@@ -2,6 +2,9 @@
 theme: default
 htmlAttrs:
     lang: ja
+seoMeta:
+    ogImage: auto
+favicon: ./public/profile-circle.png
 # some information about your slides (markdown enabled)
 title: アクセシビリティ課題チケットはなぜ積まれ続けるのか？
 # info:
@@ -15,6 +18,7 @@ transition: slide-left
 duration: 30min
 download: false
 selectable: true
+timer: stopwatch
 fonts:
     sans: Noto Sans JP,
 ---
@@ -76,37 +80,30 @@ hide: true
         - エンジニアができない原因を探るのも大事
         - 一番大事なのはコミュニケーション
 
-## 朝会の壁打ち
 
-### なぜ大臣とリファをしているんだっけ？
-
-- 今のマスター
-    - 普段忙しそう
-    - アクセシビリティやっていきの人が多い
-    - 改善をする理由を生やして改善に割きやすくしたい
-- 新しい大臣
-    - 普段忙しい
-    - アクセシビリティやっていき度は比較的低いはず
-    - どうやれば改善するかわからない
-    - キャッチアップに時間がとれない
-    - →リファをつかってあとは改善するだけ状態までサポートする
-
-まとめると
-
-- 基本PdEは新機能実装がメインでそれ以外の業務に手が回らない
-- リファをすることで、改善をするというきっかけ（理由）をつくる
-- 余裕がなくて、知らない技術のキャッチアップに手が回せない人のサポートにもなる
-
-リファの一石二鳥
-
-- 改善をするきっかけ
-- 育成
-
+---
+layout: two-cols
 ---
 
 ## 自己紹介
 
 tajiman desu!
+
+
+::right::
+
+<figure>
+  <img
+    src="./public/profile-circle.png"
+    alt="猫耳のついたストロベリーアイスクリーム" />
+  <figcaption>たじまんのインターネット上のすがた</figcaption>
+</figure>
+
+<style>
+    figcaption {
+        text-align: center;
+    }
+</style>
 
 ---
 layout: two-cols-header
