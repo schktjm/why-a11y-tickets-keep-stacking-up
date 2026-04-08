@@ -19,6 +19,10 @@
     background-image: none;
   }
 
+  .slidev-layout {
+    padding-top: 4rem;
+  }
+
   h1,
   h2,
   h3,
@@ -26,7 +30,7 @@
   h5,
   h6 {
     font-weight: bold;
-    margin-block: 1em;
+    margin-bottom: 1em;
   }
 
   h1 {
@@ -34,7 +38,8 @@
     line-height: 1.5;
   }
 
-  h2 {
+  h2,
+  h3 {
     font-size: 2.5rem;
     line-height: 1.2;
   }
